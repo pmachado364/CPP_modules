@@ -1,0 +1,12 @@
+# VSCode config
+.vscode/
+
+# Compiled files
+*.o
+*.out
+*.exe
+megaphone
+
+# OS files
+.DS_Store
+Thumbs.db
