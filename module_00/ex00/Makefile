@@ -6,14 +6,14 @@
 #    By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/06 11:39:08 by pmachado          #+#    #+#              #
-#    Updated: 2025/08/06 11:56:25 by pmachado         ###   ########.fr        #
+#    Updated: 2025/08/07 11:26:19 by pmachado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #-------------VARIABLES-------------#
 
 CXX 			= c++
-CXXFLAGS 		= -Wall -Wextra -Werror
+CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 #-------------SOURCES-------------#
 
