@@ -6,7 +6,7 @@
 /*   By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 16:58:25 by pmachado          #+#    #+#             */
-/*   Updated: 2025/08/10 18:30:29 by pmachado         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:47:31 by pmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PhoneBook {
 private:
     Contact contacts[8];
     int count; //Quantos contactos estao armazenados
-	int nextSlot; //Proximo slot a ser preenchido 
+	int nextSlot; //Proximo slot a ser preenchido
 
 	void printTable() const;
 	void promptAndShow() const;

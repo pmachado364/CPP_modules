@@ -6,7 +6,7 @@
 /*   By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 17:56:27 by pmachado          #+#    #+#             */
-/*   Updated: 2025/08/10 18:55:34 by pmachado         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:25:06 by pmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void PhoneBook::run() {
 	while (true) {
 		input = get_input("> ");
 		if (input.empty() && std::cin.eof()) break; // EOF -> sair
-
 		if (input == "ADD")
 			add();
 		else if (input == "SEARCH")
@@ -48,6 +47,6 @@ void PhoneBook::run() {
 		else if (input == "EXIT")
 			break;
 		else
-			std::cout << "Please input a valid command\n";
+			std::cout << "Invalid command\n";
 	}
 }

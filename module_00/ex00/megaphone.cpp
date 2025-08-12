@@ -6,7 +6,7 @@
 /*   By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 10:46:07 by pmachado          #+#    #+#             */
-/*   Updated: 2025/08/06 11:38:41 by pmachado         ###   ########.fr       */
+/*   Updated: 2025/08/11 15:12:20 by pmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av){
 	}
 	for (int i = 1; i < ac; i++){
 		for (int j = 0; av[i][j]; j++) {
-			std::cout << (char)std::toupper(av[i][j]);
+			std::cout << static_cast<char>(std::toupper(av[i][j]));
 		}
 		if (i < ac - 1)
 			std::cout << " ";
