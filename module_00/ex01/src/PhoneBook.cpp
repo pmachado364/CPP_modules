@@ -6,7 +6,7 @@
 /*   By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 17:56:27 by pmachado          #+#    #+#             */
-/*   Updated: 2025/08/19 16:48:18 by pmachado         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:51:39 by pmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,42 @@ std::cout << "** PhoneBook (CPP.ex01) **" << std::endl
 }
 
 void PhoneBook::add() {
-	std::cout << "[ADD] not implemented yet.\n";
+	// pick slot to write (ring buffer)
+	int slot = nextSlot;
+
+	// read each field (reject empty)
+	std::string first, last, nick, phone, secret;
+
+	first  = get_input("First name: ");
+	if (first.empty() && std::cin.eof()) return;
+
+	last   = get_input("Last name: ");
+	if (last.empty() && std::cin.eof()) return;
+
+	nick   = get_input("Nickname: ");
+	if (nick.empty() && std::cin.eof()) return;
+
+	phone  = get_input("Phone number: ");
+	if (phone.empty() && std::cin.eof()) return;
+
+	secret = get_input("Darkest secret: ");
+	if (secret.empty() && std::cin.eof()) return;
+
+	// fill contact in that slot
+	contacts[slot].setIndex(slot);
+	contacts[slot].setFirstName(first);
+	contacts[slot].setLastName(last);
+	contacts[slot].setNickname(nick);
+	contacts[slot].setPhoneNumber(phone);
+	contacts[slot].setDarkestSecret(secret);
+
+	// update counters (max 8) and advance ring pointer
+	if (count < 8) count++;
+	nextSlot = (nextSlot + 1) % 8;
+
+	std::cout << "Saved in slot " << slot << ".\n";
 }
+
 
 void PhoneBook::search() const {
 	std::cout << "[SEARCH] not implemented yet.\n";
