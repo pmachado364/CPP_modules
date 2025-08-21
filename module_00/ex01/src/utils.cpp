@@ -6,7 +6,7 @@
 /*   By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:20:45 by pmachado          #+#    #+#             */
-/*   Updated: 2025/08/20 17:12:02 by pmachado         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:02:15 by pmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool is_number(const std::string& s) {
 
 
 void tabs_replace(std::string &s) {
-	for (int i = 0; i < s.length(); i++) {
+	for (size_t i = 0; i < s.length(); i++) {
 		if (s[i] == '\t')
 			s[i] = ' ';
 	}

@@ -6,7 +6,7 @@
 #    By: pmachado <pmachado@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 11:24:09 by pmachado          #+#    #+#              #
-#    Updated: 2025/08/10 16:55:42 by pmachado         ###   ########.fr        #
+#    Updated: 2025/08/21 11:51:47 by pmachado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ HDRS := $(wildcard include/*.hpp)
 all: $(NAME)
 
 $(NAME): $(SRCS) $(HDRS)
-	$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
-
+	@echo "Compiling Phonebook.."
+	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
+	@echo "✅ Build successful."
 clean:
 	@:
 
