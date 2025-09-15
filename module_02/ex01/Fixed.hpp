@@ -11,21 +11,19 @@ class Fixed {
 	public:
 		Fixed();
 		~Fixed();
-		Fixed(const Fixed& copy);
+		Fixed(const Fixed& copy); // copy constructor
 
-		Fixed& operator=(const Fixed& other);
-		int getRawBits (void) const;
-		void setRawBits (int const raw);
+		Fixed(const int value); // int constructor
+		Fixed(const float value); // float constructor
 
-		//-----New fields for ex01-----//
-		Fixed(const int);
-		Fixed( const float);
+		Fixed& operator=(const Fixed& other); // copy assignment operator
 
-		int toInt( void ) const;
-		float toFloat( void ) const;
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+		float toFloat(void) const;
+		int toInt(void) const;
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Fixed& value); //insertion operator nao faz parte da classe
-
+std::ostream& operator<<(std::ostream& out, const Fixed& value);
 #endif
