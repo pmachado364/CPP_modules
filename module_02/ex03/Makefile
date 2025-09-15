@@ -2,8 +2,8 @@ NAME     = ex03
 CXX      = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 
-SRC := main.cpp Fixed.cpp operators.cpp
-INCLUDE := Fixed.hpp
+SRC := main.cpp Fixed.cpp Point.cpp bsp.cpp
+INCLUDE := Fixed.hpp Point.hpp
 
 all: $(NAME)
 
