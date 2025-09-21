@@ -15,7 +15,7 @@ $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "✅ Build successful."
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 	@echo "Clean done."
 fclean: clean
 	@rm -f $(NAME)
