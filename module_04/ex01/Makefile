@@ -1,17 +1,18 @@
-NAME     = polymorphism
+NAME     = ex01
 CXX      = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 
 SRC := main.cpp \
 	   src/Animal.cpp src/Dog.cpp src/Cat.cpp \
-	   src/WrongAnimal.cpp src/WrongCat.cpp
+	   src/WrongAnimal.cpp src/WrongCat.cpp \
+	   src/Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Compiling Module_04 ex00.."
+	@echo "Compiling Module_04 ex01.."
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "✅ Build successful."
 clean:

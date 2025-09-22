@@ -15,6 +15,7 @@ class Animal {
 		
 		const std::string& getType() const; // getter for protected member type
 		virtual void makeSound() const; // virtual function = can be overridden in derived classes
+		virtual void think(int index) const; // 
 };
 
 #endif
