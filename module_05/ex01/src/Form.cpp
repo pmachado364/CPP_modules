@@ -20,3 +20,58 @@ Form::Form(const std::string& name, int grdToSign, int grdToExec)
 	std::cout << "Grade required to execute: " << this->grdToExec << std::endl;
 }
 
+Form::Form(const Form& other)
+	:	name(other.name),
+		isSigned(other.isSigned),
+		grdToSign(other.grdToSign),
+		grdToExec(other.grdToExec) {
+	std::cout << "Form " << this->name << ", was copied from Form " << other.name << "." << std::endl;
+}
+
+Form& Form::operator=(const Form& other) {
+	if (this != &other) {
+		this->isSigned = other.isSigned; //name, grdToSign and grdToExec are const
+	}
+	std::cout << "Form " << this->name << " was assigned a new signed status: " << this->isSigned << std::endl;
+	return *this;
+}
+
+Form::~Form() {
+	std::cout << "Form " << this->name << " was destroyed." << std::endl;
+}
+
+const std::string& Form::getName() const {
+	return this->name;
+}
+
+bool Form::getSignedStatus() const {
+	return this->isSigned;
+}
+
+int Form::getGrdToSign() const {
+	return this->grdToSign;
+}
+
+int Form::getGrdToExec() const {
+	return this->grdToExec;
+}
+
+void Form::beSigned(const Bureaucrat& b) {
+	if(b.getGrade() <= this->grdToSign) {
+		this->isSigned = true;
+		std::cout << "Form " << this->name << " can be signed by Bureaucrat " << b.getName() << "." << std::endl;
+	} else {
+		std::cout << "Form " << this->name << " cannot be signed by Bureaucrat " << b.getName() << " due to low grade." << std::endl;
+		throw GradeTooLowException();
+	}
+}
+
+std::ostream& operator<<(std::ostream& out, const Form& f) {
+	if(f.getSignedStatus())
+		out << "Form " << f.getName() << " is signed. ";
+	else
+		out << "Form " << f.getName() << " is not signed. ";
+	out << "Grade required to sign: " << f.getGrdToSign() << ". ";
+	out << "Grade required to execute: " << f.getGrdToExec() << ".";
+	return out;
+}
