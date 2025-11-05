@@ -6,7 +6,8 @@ SRC_DIR = src
 HDR_DIR = include
 SRC = main.cpp \
 	   $(SRC_DIR)/Bureaucrat.cpp \
-	   $(SRC_DIR)/Form.cpp
+	   $(SRC_DIR)/AForm.cpp \
+	   $(SRC_DIR)/ShrubberyCreationForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -26,6 +27,7 @@ clean:
 	@echo ".obj files cleaned."
 fclean: clean
 	@rm -f $(NAME)
+	rm -f *_shrubbery
 	@echo "Full clean done."
 
 re: fclean all
