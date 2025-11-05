@@ -1,8 +1,9 @@
-#ifndef SRUBBERYCREATIONFORM_H
-#define SRUBBERYCREATIONFORM_H
+#ifndef SHRUBBERYCREATIONFORM_H
+#define SHRUBBERYCREATIONFORM_H
 
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <exception>
 #include "AForm.hpp"
 
