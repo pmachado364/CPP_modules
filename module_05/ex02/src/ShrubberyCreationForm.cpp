@@ -3,7 +3,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
 	: AForm("ShrubberyCreationForm", 145, 137), target(target) {
-		std::cout << "ShrubberyCreationForm created." << std::endl;
+		std::cout << "ShrubberyCreation form created." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
@@ -12,23 +12,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
-	if(this != &other) {
+	if(this != &other)
 		AForm::operator=(other);
-	}
 	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "ShrubberyCreationForm destroyed." << std::endl;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	if(!this->getSignedStatus()) {
-		std::cout << "Error: Form is not signed." << std::endl;
 		throw AForm::FormNotSigned();
 	}
 	else if(executor.getGrade() > this->getGrdToExec()) {
-		std::cout << "Error: Bureaucrat's grade is too low to execute the form." << std::endl;
 		throw AForm::GradeTooLowException();
 	}
 	std::string outputFilename = this->target + "_shrubbery";
@@ -74,9 +70,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	outputFile << "  |    much work to get it?     |" << std::endl;
 	outputFile << "   \\___________________________/" << std::endl;
 	outputFile.close();
-	std::cout << "Shrubbery created in file: " << outputFilename << std::endl;
-	std::cout << "ShrubberyCreationForm executed by " << executor.getName()
-          << ". Check the created file in the main directory." << std::endl;
+	std::cout << "\n*** ShrubberyCreationForm *** executed by " << executor.getName()
+          << ". Check the file: _" << outputFilename << "_\n" << std::endl;
 
 }
 //Creates a file <target>_shrubbery in the working directory and writes ASCII trees

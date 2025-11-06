@@ -1,32 +1,50 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
+#include <cstdlib>
 #include <iostream>
 
 int main() {
+	srand(time(0)); //seed for random generator
 	try {
-		std::cout << "--- Bureaucrat creation ---" << std::endl;
+		std::cout << "Creating Bureaucrats..." << std::endl;
 		Bureaucrat pedro("Pedro", 1);
+		Bureaucrat miguel("Miguel", 146);
+		Bureaucrat jose("Jose", 70);
+		Bureaucrat rita("Rita", 10);
 
-		std::cout << "\n--- Form creation ---" << std::endl;
-		ShrubberyCreationForm form("home");
+		std::cout << "\nCreating Forms ..." << std::endl;
+		ShrubberyCreationForm form("house"); //target can be someone or something
+		RobotomyRequestForm form2("Another human brain");
+		PresidentialPardonForm form3("Somebody");
+		//we cant create an abstract form: AForm form("Generic", 50, 50); so we have to use a derived class
 
-		std::cout << "\n--- Before signing ---" << std::endl;
-		std::cout << form << std::endl;
+		std::cout << "\nBefore signing :" << std::endl;
+		std::cout << form << std::endl; //grade cannot be changed, so it will always be the same
+		std::cout << form2 << std::endl;
 
-		std::cout << "\n--- Signing attempt ---" << std::endl;
+		std::cout << "\nSigning attempt :" << std::endl;
+		miguel.signForm(form2); //should fail
 		pedro.signForm(form);
+		jose.signForm(form2); //should succeed
 
-		std::cout << "\n--- After signing ---" << std::endl;
+		std::cout << "\nAfter signing :" << std::endl;
 		std::cout << form << std::endl;
+		std::cout << form2 << std::endl;
 
-		std::cout << "\n--- Executing form ---" << std::endl;
+		std::cout << "\nExecuting form :" << std::endl;
+		jose.executeForm(form2);
 		pedro.executeForm(form);
+		rita.executeForm(form2);
+		pedro.executeForm(form3); //should fail because not signed
+		pedro.signForm(form3);
+		pedro.executeForm(form3); //should succeed
 	}
 	catch (std::exception &e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-
 	return 0;
 }
 
