@@ -10,3 +10,6 @@ megaphone
 # OS files
 .DS_Store
 Thumbs.db
+
+# Subject pdf's
+*.pdf
