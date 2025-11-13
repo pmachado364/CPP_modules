@@ -1,7 +1,5 @@
 #include "ScalarConverter.hpp"
 
-#include <limits.h>
-
 void ScalarConverter::convert(const std::string& literal) {
 	ScalarConverter::Typeinfo arrayTypes[] =
 	{

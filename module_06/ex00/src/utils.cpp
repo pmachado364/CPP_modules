@@ -1,7 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <cctype>  // isdigit, isprint
 #include <cstdlib> // strtol, strtof, strtod
-#include <limits>  // numeric_limits
+
 
 bool ScalarConverter::validateChar(const std::string& literal) {
 	if(literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0]))
@@ -23,10 +23,6 @@ bool ScalarConverter::validateInt(const std::string& literal) {
 		if (!std::isdigit(literal[i]))
 			return false;
 	}
-	long value = std::strtol(literal.c_str(), NULL, 10);
-	if (value > std::numeric_limits<int>::max() ||
-		value < std::numeric_limits<int>::min())
-		return false;
 	return true;
 }
 
