@@ -6,6 +6,7 @@ SRC_DIR = src
 HDR_DIR = include
 SRC = main.cpp \
 	   $(SRC_DIR)/ScalarConverter.cpp
+	   $(SRC_DIR)/utils.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

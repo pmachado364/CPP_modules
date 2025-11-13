@@ -1,8 +1,8 @@
 #ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
-# include <string>
-# include <iostream>
+#include <string>
+#include <iostream>
 
 class ScalarConverter {
 	private:
@@ -18,16 +18,16 @@ class ScalarConverter {
 		ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter();
 		
-		//---Functions to check type---//
-		static bool isChar(const std::string& literal);
-		static bool isInt(const std::string& literal);
-		static bool isFloat(const std::string& literal);
-		static bool isDouble(const std::string& literal);
-		//---fucntions to print type---//
-		static void printChar(const std::string& literal);
-		static void printInt(const std::string& literal);
-		static void printFloat(const std::string& literal);
-		static void printDouble(const std::string& literal);
+		//---Functions to verify type---//
+		static bool validateChar(const std::string& literal);
+		static bool validateInt(const std::string& literal);
+		static bool validateFloat(const std::string& literal);
+		static bool validateDouble(const std::string& literal);
+		//---functions to print type---//
+		static void convertChar(const std::string& literal);
+		static void convertInt(const std::string& literal);
+		static void convertFloat(const std::string& literal);
+		static void convertDouble(const std::string& literal);
 
 	public:
 		static void convert(const std::string& literal);
