@@ -1,12 +1,13 @@
-NAME     = converter
+NAME     = convert
 CXX      = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -Iinclude
 
 SRC_DIR = src
 HDR_DIR = include
 SRC = main.cpp \
-	   $(SRC_DIR)/ScalarConverter.cpp
-	   $(SRC_DIR)/utils.cpp
+	   $(SRC_DIR)/ScalarConverter.cpp\
+	   $(SRC_DIR)/utils.cpp\
+	   ${SRC_DIR}/utils_2.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -26,7 +27,6 @@ clean:
 	@echo ".obj files cleaned."
 fclean: clean
 	@rm -f $(NAME)
-	rm -f *_shrubbery
 	@echo "Full clean done."
 
 re: fclean all

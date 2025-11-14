@@ -2,7 +2,6 @@
 #include <cctype>  // isdigit, isprint
 #include <cstdlib> // strtol, strtof, strtod
 
-
 bool ScalarConverter::validateChar(const std::string& literal) {
 	if(literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0]))
 		return true;
@@ -29,7 +28,7 @@ bool ScalarConverter::validateInt(const std::string& literal) {
 bool ScalarConverter::validateFloat(const std::string& literal) {
 	if (literal == "nanf" || literal == "+inff" || literal == "-inff")
 		return true;
-	if (literal.empty() || literal.back() != 'f')
+if (literal.empty() || literal[literal.length() - 1] != 'f')
 		return false;
 
 	size_t i = 0;
