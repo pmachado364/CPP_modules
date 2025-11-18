@@ -1,55 +1,64 @@
 #include "Array.hpp"
 
-template <class T>
-Array<T>::Array() : data(NULL), n(0) {
+template <typename T>
+Array<T>::Array() : _array(NULL), _size(0) {
+	std::cout << "Default constructor called" << std::endl;
 }
 
-template <class T>
-Array<T>::Array(unsigned int n) : data(new T[n]()), n(n) {
+template <typename T>
+Array<T>::Array(unsigned int n) : _size(n) {
+	std::cout << "Parameterized constructor called" << std::endl;
+	if(n == 0)
+		_array = NULL;
+	else
+		_array = new T[n](); // having () insures the array members are default initiated
 }
 
-template <class T>
-Array<T>::Array(const Array<T>& other) : data(new T[other.n]()), n(other.n) {
-	for (unsigned int i = 0; i < n; i++) {
-		data[i] = other.data[i];
+template <typename T>
+Array<T>::Array(const Array& other) : _size(other._size) {
+	std::cout << "Copy constructor called" << std::endl;
+	if (_size == 0)
+		_array = NULL;
+	else {
+		_array = new T[_size]();
+		for (unsigned int i = 0; i < _size; i++)
+			_array[i] = other._array[i];
 	}
 }
 
-template <class T>
-Array<T>& Array<T>::operator=(const Array<T>& other) {
-	if (this != &other) {
-		delete[] data;
-		n = other.n;
-		data = new T[n]();
-		for (unsigned int i = 0; i < n; i++) {
-			data[i] = other.data[i];
+template <typename T>
+Array<T>::~Array() {
+	std::cout << "Destructor called" << std::endl;
+	if (_array)
+		delete[] _array;
+} //if _array is NULL, delete[] will do nothing
+
+template <typename T>
+Array<T>& Array<T>::operator=(const Array& other) {
+	std::cout << "Assignment operator called" << std::endl;
+	if(this != &other) {
+		if (_array)
+			delete[] _array;
+		_size = other._size;
+		if (_size == 0)
+			_array = NULL;
+		else {
+			_array = new T[_size]();
+			for (unsigned int i = 0; i < _size; i++)
+				_array[i] = other._array[i];
 		}
 	}
 	return *this;
 }
 
-template <class T>
+template <typename T>
 T& Array<T>::operator[](unsigned int index) {
-	if (index >= n) {
+	if (index >= _size)
 		throw std::out_of_range("Index out of bounds");
-	}
-	return data[index];
+	return _array[index];
 }
 
-template <class T>
-const T& Array<T>::operator[](unsigned int index) const {
-	if (index >= n) {
-		throw std::out_of_range("out of bounds");
-	}
-	return data[index];
-}
-
-template <class T>
-Array<T>::~Array() {
-	delete[] data;
-}
-
-template <class T>
+template <typename T>
 unsigned int Array<T>::size() const {
-	return n;
+	return _size;
 }
