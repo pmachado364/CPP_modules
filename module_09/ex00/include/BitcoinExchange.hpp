@@ -18,17 +18,16 @@ class BitcoinExchange {
 		//validation functions
 		bool validateDate(const std::string& date) const; //validate date format
 		bool validateRate(const std::string& rate) const; //validate DB rate format
-		bool validateValue(const std::string& value) const; //validate input value
 		
 		//util functions
-		std::string trim(const std::string& str); //trim whitespace from a string
 		float getRate(const std::string& date) const; //get the rate on a specific date or the closest previous date
+		std::string trim(const std::string& str); //trim whitespace from a string
 		void printBadInput(const std::string& line) const;
 		void printNotPositive() const;
 		void printTooLarge() const;
 		bool stringToFloat(const std::string& str, float& out) const;
 
-		public :
+	public :
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);

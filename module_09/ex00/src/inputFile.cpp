@@ -48,26 +48,3 @@ void BitcoinExchange::parseInputFileLine(const std::string& line) {
               << std::endl;
 }
 
-void BitcoinExchange::printBadInput(const std::string& line) const {
-	std::cout << "Error: bad input => " << line << std::endl;
-}
-void BitcoinExchange::printNotPositive() const {
-	std::cout << "Error: not a positive number." << std::endl;
-}
-void BitcoinExchange::printTooLarge() const {
-	std::cout << "Error: too large a number." << std::endl;
-}
-bool BitcoinExchange::stringToFloat(const std::string& str, float& out) const {
-    if (str.empty())
-        return false;
-    std::istringstream ss(str);
-    ss >> out;
-    // Extraction must not fail
-    if (ss.fail())
-        return false;
-    // No leftover characters allowed
-    if (!ss.eof())
-        return false;
-    return true;
-}
-
