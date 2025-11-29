@@ -9,11 +9,13 @@ class RevPolishNotation {
 	private :
 		std::stack<int>	_stack;
 
-		//pointer to a member function of RevPolishNotation that takes two ints and returns an int
-		// typedef allows us to create an alias for this complex type
-		// Now we can use 'operatorPtr' as a type
-		typedef int (RevPolishNotation::*operatorPtr)(int, int) const;
-		std::map<char, operatorPtr> _operatorsMap; // we link the key (char) to the value (pointer to member function)
+		typedef int (RevPolishNotation::*opFunc)(int, int) const;
+		//pointer to a member function that takes (int, int) arguments and returns an int.
+		struct OperatorPtr {
+			char op;
+			opFunc func;
+		}; // the struct will tie an operator character to its corresponding member function.
+		OperatorPtr	_operators[4]; // array of 4 operators.
 
 		int operatorAdd(int a, int b) const;
 		int operatorSubtract(int a, int b) const;
