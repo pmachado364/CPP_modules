@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <limits>
+#include <cstdlib>
 
 void PmergeMe::parseInput(int ac, char** av) {
 	for (int i = 0; i < ac; ++i) {
@@ -20,15 +21,23 @@ void PmergeMe::parseInput(int ac, char** av) {
 }
 
 void PmergeMe::printContainerV(const std::vector<int>& container) const {
-	for (size_t i = 0; i < container.size(); ++i) {
+	size_t limit = 10;
+	size_t n = container.size();
+	for (size_t i = 0; i < n && i < limit; ++i) {
 		std::cout << container[i] << " ";
 	}
+	if (n > limit)
+		std::cout << "[...]";
 	std::cout << std::endl;
 }
 
 void PmergeMe::printContainerC(const std::deque<int>& container) const {
-	for (size_t i = 0; i < container.size(); ++i) {
+	size_t limit = 10;
+	size_t n = container.size();
+	for (size_t i = 0; i < n && i < limit; ++i) {
 		std::cout << container[i] << " ";
 	}
+	if (n > limit)
+		std::cout << "[...]";
 	std::cout << std::endl;
 }
