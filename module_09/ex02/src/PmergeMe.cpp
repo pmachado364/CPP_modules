@@ -19,7 +19,12 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 PmergeMe::~PmergeMe() {}
 
 void PmergeMe::execute(int ac, char** av) {
-	parseInput(ac, av);
+	try {
+		parseInput(ac, av);
+	} catch (const std::exception& e) {
+		std::cerr << "Error: " << std::endl;
+		return;
+	}
 	std::cout << "Before: ";
 	printContainerV(_vec);
 	printContainerC(_deq); //DEBUG
