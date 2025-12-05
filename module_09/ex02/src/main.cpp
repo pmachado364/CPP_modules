@@ -6,7 +6,7 @@ int main (int ac, char** av) {
 		std::cerr << "Usage: ./PmergeMe <list of positive integers>" << std::endl;
 		return 1;
 	}
-	PmergeMe test;
-	test.execute(ac - 1, av + 1);
+	PmergeMe sort;
+	sort.execute(ac - 1, av + 1);
 	return 0;
 }
