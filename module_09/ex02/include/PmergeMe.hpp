@@ -31,6 +31,14 @@ class PmergeMe {
 		void binaryInsert(std::vector<int>& main, int value);
 		
 		void FJsortDeque(std::deque<int>& deq);
+		void sortPairsDQ(
+							const std::deque<int>& deq,
+							std::deque<int>& main,
+							std::deque<int>& pending,
+							bool& leftover,
+							int& leftoverElement);
+		void insertPendingDQ(std::deque<int>& main, const std::deque<int>& pending);
+		void binaryInsertDQ(std::deque<int>& main, int value);
 
 		void printTimeVector() const;
 		void printTimeDeque() const;

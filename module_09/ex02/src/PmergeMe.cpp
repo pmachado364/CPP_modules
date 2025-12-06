@@ -34,15 +34,14 @@ void PmergeMe::execute(int ac, char** av) {
 	double endV = getCurrentTime();
 	_timeVector = endV - startV;
 
-	//double startD = getCurrentTime();
-	//FJsortDeque(_deq); //sort deq + time it
-	//double endD = getCurrentTime();
-	//_timeDeque = endD - startD;
+	double startD = getCurrentTime();
+	FJsortDeque(_deq); //sort deq + time it
+	double endD = getCurrentTime();
+	_timeDeque = endD - startD;
 
 	std::cout << "After: ";
 	printContainerV(_vec);
 	//printContainerC(_deq); //DEBUG
-
 	printTimeVector();
-	//printTimeDeque();
+	printTimeDeque();
 }
