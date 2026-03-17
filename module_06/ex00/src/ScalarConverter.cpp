@@ -8,7 +8,8 @@ void ScalarConverter::convert(const std::string& literal) {
 		{"float", ScalarConverter::validateFloat, ScalarConverter::convertFloat},
 		{"double", ScalarConverter::validateDouble, ScalarConverter::convertDouble}
 	};
-	for (int i = 0; i < 4; i++){
+	const size_t size = sizeof(arrayTypes) / sizeof(arrayTypes[0]);
+	for (size_t i = 0; i < size; i++){
 		if (arrayTypes[i].isType(literal)) {
 			arrayTypes[i].printType(literal);
 			return;
