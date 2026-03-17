@@ -5,8 +5,7 @@ int main() {
 
 	std::cout << "\n*****[ Manual Memory Inspection ]*****" << std::endl;
 	std::cout << "Note: Using reinterpret_cast and byte-level pointer arithmetic." << std::endl;
-	std::cout << "(This is not reliable in production due to compiler padding/alignment.)\n" << std::endl;
-
+	
 	std::cout << "Data Earth Address: " << &Earth << std::endl;
 	std::cout << "Planet (std::string) internal pointer: " << reinterpret_cast<void*>(*reinterpret_cast<uintptr_t*>((char*)&Earth))<< std::endl;
 	std::cout << "Moons (int): " << *reinterpret_cast<int*>((char*)&Earth + sizeof(std::string)) << std::endl;
